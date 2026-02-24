@@ -1,44 +1,83 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Login</title>
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <title>Timesheet Management</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #1f2937, #111827);
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 36px;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 18px;
+      color: #d1d5db;
+      margin-bottom: 30px;
+    }
+
+    .buttons a {
+      text-decoration: none;
+      margin: 10px;
+    }
+
+    .btn {
+      padding: 12px 25px;
+      font-size: 16px;
+      border-radius: 6px;
+      border: none;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .signin {
+      background-color: #2563eb;
+      color: white;
+    }
+
+    .signup {
+      background-color: #10b981;
+      color: white;
+    }
+
+    .btn:hover {
+      opacity: 0.8;
+    }
+  </style>
 </head>
+
 <body>
 
-  <h2>Login</h2>
+  <div class="container">
+    <h1>Timesheet Login Management</h1>
+    <p>
+      A simple web application to manage weekly timesheet entries,
+      projects, and user access securely.
+    </p>
 
-  <input type="email" id="email" placeholder="Email" />
-  <br><br>
-  <input type="password" id="password" placeholder="Password" />
-  <br><br>
+    <div class="buttons">
+      <a href="login.html">
+        <button class="btn signin">Sign In</button>
+      </a>
 
-  <button onclick="login()">Login</button>
-
-  <p id="message"></p>
-
-  <script>
-    const supabase = supabase.createClient(
-      "https://luuxkrboyzophtuqubal",
-      "sb_publishable_I-Y5MW8ybpZ-GCdusV3pWA_1-6KMsoX"
-    );
-
-    async function login() {
-      const email = document.getElementById("email").value;
-      const password = document.getElementById("password").value;
-
-      const { data, error } = await supabase.auth.signInWithPassword({
-        email: email,
-        password: password
-      });
-
-      if (error) {
-        document.getElementById("message").innerText = error.message;
-      } else {
-        window.location.href = "dashboard.html";
-      }
-    }
-  </script>
+      <a href="signup.html">
+        <button class="btn signup">Sign Up</button>
+      </a>
+    </div>
+  </div>
 
 </body>
 </html>
