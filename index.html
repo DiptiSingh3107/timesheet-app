@@ -2,70 +2,109 @@
 <html>
 <head>
   <title>Timesheet Management</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <style>
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: linear-gradient(to right, #1f2937, #111827);
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #1e3a8a, #0f172a);
       color: white;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
     }
 
-    .container {
+    .hero {
       text-align: center;
+      padding: 80px 20px;
     }
 
-    h1 {
-      font-size: 36px;
-      margin-bottom: 10px;
+    .hero h1 {
+      font-size: 42px;
+      margin-bottom: 15px;
     }
 
-    p {
+    .hero p {
       font-size: 18px;
       color: #d1d5db;
-      margin-bottom: 30px;
+      max-width: 600px;
+      margin: auto;
     }
 
-    .buttons a {
-      text-decoration: none;
-      margin: 10px;
+    .buttons {
+      margin-top: 30px;
     }
 
     .btn {
-      padding: 12px 25px;
-      font-size: 16px;
-      border-radius: 6px;
+      padding: 12px 28px;
+      margin: 10px;
+      border-radius: 8px;
       border: none;
+      font-size: 16px;
       cursor: pointer;
-      transition: 0.3s;
+      transition: 0.3s ease;
     }
 
     .signin {
-      background-color: #2563eb;
+      background: #2563eb;
       color: white;
     }
 
     .signup {
-      background-color: #10b981;
+      background: #10b981;
       color: white;
     }
 
     .btn:hover {
-      opacity: 0.8;
+      transform: translateY(-2px);
+      opacity: 0.9;
+    }
+
+    .features {
+      background: white;
+      color: #1f2937;
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .features h2 {
+      margin-bottom: 40px;
+    }
+
+    .feature-grid {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+
+    .card {
+      background: #f9fafb;
+      padding: 25px;
+      width: 250px;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    .card h3 {
+      margin-top: 10px;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 20px;
+      background: #0f172a;
+      font-size: 14px;
+      color: #9ca3af;
     }
   </style>
 </head>
 
 <body>
 
-  <div class="container">
+  <section class="hero">
     <h1>Timesheet Login Management</h1>
     <p>
-      A simple web application to manage weekly timesheet entries,
-      projects, and user access securely.
+      A simple and secure web application to manage weekly timesheets,
+      projects, and user access — built with Supabase.
     </p>
 
     <div class="buttons">
@@ -77,6 +116,37 @@
         <button class="btn signup">Sign Up</button>
       </a>
     </div>
+  </section>
+
+ <section class="features">
+  <h2>Why Use This App?</h2>
+
+  <div class="feature-grid">
+
+    <div class="card">
+      <h3>📅 Weekly Tracking</h3>
+      <p>Submit timesheets easily for open weekly periods.</p>
+    </div>
+
+    <div class="card">
+      <h3>📁 Custom Projects & Tasks</h3>
+      <p>Create your own projects and manage tasks based on your business needs.</p>
+    </div>
+
+    <div class="card">
+      <h3>👥 Teams & User Profiles</h3>
+      <p>Create your own teams and manage user profiles with controlled access.</p>
+    </div>
+
+    <div class="card">
+      <h3>🔐 Secure Login</h3>
+      <p>Powered by Supabase authentication for secure and reliable access.</p>
+    </div>
+
+  </div>
+</section>
+  <div class="footer">
+    © 2026 Timesheet Management App | Built by Dipti Singh
   </div>
 
 </body>
