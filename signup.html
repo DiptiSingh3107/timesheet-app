@@ -89,37 +89,36 @@
     </p>
   </div>
 
-<script>
-  const supabase = supabase.createClient(
-    "https://diptisingh3107.github.io/timesheet-app/",
+ <script>
+  const { createClient } = supabase;
+
+  const supabaseClient = createClient(
+    "https://luuxkrboyzophtuqubal.supabase.co",
     "sb_publishable_I-Y5MW8ybpZ-GCdusV3pWA_1-6KMsoX"
   );
 
-async function signUp() {
-  const email = document.getElementById("email").value;
-  const password = document.getElementById("password").value;
+  async function signUp() {
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
 
-  const { data, error } = await supabase.auth.signUp({
-    email: email,
-    password: password,
-    options: {
-      emailRedirectTo: "https://diptisingh3107.github.io/timesheet-app/"
+    const { data, error } = await supabaseClient.auth.signUp({
+      email: email,
+      password: password
+    });
+
+    const message = document.getElementById("message");
+
+    if (error) {
+      message.innerText = error.message;
+      message.style.color = "red";
+    } else {
+      message.innerText =
+        "Signup successful! Please check your email.";
+      message.style.color = "green";
     }
-  });
-
-  const message = document.getElementById("message");
-
-  if (error) {
-    message.innerText = error.message;
-    message.style.color = "red";
-  } else {
-    message.innerText =
-      "Signup successful! Please check your email to verify your account.";
-    message.style.color = "green";
-  }
-}    
   }
 </script>
+       
 
 </body>
 </html>
