@@ -1,64 +1,98 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Sign Up</title>
+  <title>Sign Up | Timesheet Management</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
   <style>
     body {
-      font-family: Arial;
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #1e3a8a, #0f172a);
       display: flex;
       justify-content: center;
       align-items: center;
       height: 100vh;
-      background-color: #f5f5f5;
+      color: white;
     }
+
     .card {
       background: white;
-      padding: 30px;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      width: 300px;
+      color: #1f2937;
+      padding: 40px;
+      border-radius: 12px;
+      width: 350px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+      text-align: center;
     }
+
+    h2 {
+      margin-bottom: 20px;
+    }
+
     input {
       width: 100%;
-      padding: 8px;
-      margin: 8px 0;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 6px;
+      border: 1px solid #d1d5db;
+      font-size: 14px;
     }
+
     button {
       width: 100%;
-      padding: 10px;
-      background-color: black;
+      padding: 12px;
+      margin-top: 15px;
+      background-color: #10b981;
       color: white;
       border: none;
+      border-radius: 6px;
+      font-size: 15px;
       cursor: pointer;
+      transition: 0.3s;
     }
+
+    button:hover {
+      opacity: 0.9;
+      transform: translateY(-2px);
+    }
+
     .message {
-      margin-top: 10px;
+      margin-top: 15px;
       font-size: 14px;
+    }
+
+    a {
+      color: #2563eb;
+      text-decoration: none;
+      font-weight: 500;
     }
   </style>
 </head>
+
 <body>
 
   <div class="card">
-    <h2>Sign Up</h2>
+    <h2>Create Account</h2>
 
-    <input type="email" id="email" placeholder="Email" />
-    <input type="password" id="password" placeholder="Password" />
+    <input type="email" id="email" placeholder="Enter your email" />
+    <input type="password" id="password" placeholder="Create password" />
 
-    <button onclick="signUp()">Create Account</button>
+    <button onclick="signUp()">Sign Up</button>
 
-    <div class="message" id="message"></div>
+    <div id="message" class="message"></div>
 
-    <p style="margin-top:15px;">
-      Already have account? <a href="index.html">Login</a>
+    <p style="margin-top:20px;">
+      Already have an account?
+      <a href="login.html">Sign In</a>
     </p>
   </div>
 
 <script>
   const supabase = supabase.createClient(
-  "https://luuxkrboyzophtuqubal",
-  "sb_publishable_I-Y5MW8ybpZ-GCdusV3pWA_1-6KMsoX"
+    "https://luuxrkboyzophtuqubal.supabase.co",
+    "YOUR_PUBLISHABLE_KEY_HERE"
   );
 
   async function signUp() {
@@ -70,13 +104,14 @@
       password: password
     });
 
+    const message = document.getElementById("message");
+
     if (error) {
-      document.getElementById("message").innerText = error.message;
-      document.getElementById("message").style.color = "red";
+      message.innerText = error.message;
+      message.style.color = "red";
     } else {
-      document.getElementById("message").innerText =
-        "Signup successful! Please check your email.";
-      document.getElementById("message").style.color = "green";
+      message.innerText = "Account created successfully! Please check your email.";
+      message.style.color = "green";
     }
   }
 </script>
